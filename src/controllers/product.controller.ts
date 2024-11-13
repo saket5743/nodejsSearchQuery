@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import QueryString, { ParsedQs } from "qs";
-// import Product from '../module/product.module'
 import Product from '../module/product.module';
-// const { search } = require('../routes/product');
 
 const getAllProductsStatic = async (req: Request, res: Response) => {
   const search = 'ac';
