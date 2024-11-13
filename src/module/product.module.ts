@@ -1,6 +1,14 @@
 import mongoose from 'mongoose'
 
-const productSchema = new mongoose.Schema({
+interface IUser {
+  name: string,
+  price: number,
+  featured: boolean,
+  rating: number,
+  company: string
+}
+
+const productSchema = new mongoose.Schema<IUser>({
   name: {
     type: String,
     required: [true, 'product name must be provided'],
@@ -17,17 +25,12 @@ const productSchema = new mongoose.Schema({
     type: Number,
     default: 4.5
   },
-  createdAt: {
-    type: Date,
-    default: Date.now()
-  },
   company: {
     type: String,
     enum: {
       values: ["ikea", "liddy", "caressa", "marcos"],
       message: `VALUE is not supported`
-    },
-    // enum:["ikea","liddy","caressa","marcos"]
+    }
   }
 })
 
